@@ -14,10 +14,7 @@ ARCHITECTURE combinatorialEncoding OF hammingCodeEncoder IS
 				y: OUT STD_LOGIC);
 	END COMPONENT;
 	
-	signal m1_m2, m3_m7, m8_m9, m1237, m1237_89, --x12
-			 m1_m4, m5_m7, m8_m10, m1457, m1457_810, --x13
-			 m2_m4, m6_m7, m9_m10, m2467, m2467_910, --x14
-			 m3_m5, m6_m8, m3568, m3568_910: std_logic; --x15
+	signal m1_m7, m8_m11, m_a, m2_m3, m23_9, m4_m5, m45_10, m6_m9, m10_m11, m_b, m2_m4, m24_7, m3_m5, m35_8: std_logic;
 	
 BEGIN
 	x1 <= m1;
@@ -34,45 +31,36 @@ BEGIN
 	
 	
 	-- x12
-	xor1_2: gateXOR PORT MAP (m1, m2, m1_m2);
-	xor3_7: gateXOR PORT MAP (m3, m7, m3_m7);
-	xor8_9: gateXOR PORT MAP (m8, m9, m8_m9);
-	xor1237: gateXOR PORT MAP (m1_m2,m3_m7,m1237);
-	xor1237_89: gateXOR PORT MAP (m1237,m8_m9,m1237_89);
+	xor1_7: gateXOR PORT MAP (m1, m7, m1_m7);
+	xor8_11: gateXOR PORT MAP (m8, m11, m8_m11);
+	xor_A: gateXOR PORT MAP(m1_m7,m8_m11,m_a);
 	
-	xor12: gateXOR PORT MAP(m1237_89,m11,x12);
-
+	xor2_3: gateXOR PORT MAP(m2, m3, m2_m3);
+	xor23_9: gateXOR PORT MAP(m2_m3, m9, m23_9);
 	
+	xor12: gateXOR PORT MAP(m23_9,m_a,x12);
 	
 	-- x13
-	xor1_4: gateXOR PORT MAP (m1, m4, m1_m4);
-	xor5_7: gateXOR PORT MAP (m5, m7, m5_m7);
-	xor8_10: gateXOR PORT MAP (m8, m10, m8_m10);
-	xor1457: gateXOR PORT MAP (m1_m4,m5_m7,m1457);
-	xor1457_810: gateXOR PORT MAP (m1457,m8_m10,m1457_810);
+	xor4_5: gateXOR PORT MAP(m4, m5, m4_m5);
+	xor45_10: gateXOR PORT MAP(m4_m5, m10, m45_10);
+	xor13: gateXOR PORT MAP(m_a,m45_10,x13);
 	
-	xor13: gateXOR PORT MAP(m1457_810,m11,x13); 
-
-
-	-- x14
-	xor2_4: gateXOR PORT MAP (m2, m4, m2_m4);
-	xor6_7: gateXOR PORT MAP (m6, m7, m6_m7);
-	xor9_10: gateXOR PORT MAP (m9, m10, m9_m10);
-	xor2467: gateXOR PORT MAP (m1_m4,m5_m7,m2467);
-	xor2467_910: gateXOR PORT MAP (m2467,m9_m10,m2467_910);
 	
-	xor14: gateXOR PORT MAP(m2467_910,m11,x14); 
+	-- x14 
+	xor6_9: gateXOR PORT MAP (m6, m9, m6_m9);
+	xor10_11: gateXOR PORT MAP (m10, m11, m10_m11);
+	xor_B: gateXOR PORT MAP(m6_m9,m10_m11,m_b);
+	
+	xor2_4: gateXOR PORT MAP(m2, m4, m2_m4);
+	xor24_7: gateXOR PORT MAP(m2_m4, m7, m24_7);
+	
+	xor14: gateXOR PORT MAP(m24_7,m_b,x14);
 
-
+	
 	-- x15
-	xor3_5: gateXOR PORT MAP (m3, m5, m3_m5);
-	xor6_8: gateXOR PORT MAP (m6, m8, m6_m8);
-	xor3568: gateXOR PORT MAP (m3_m5,m6_m8,m3568);
-	xor3568_910: gateXOR PORT MAP (m3568,m9_m10,m3568_910);
-	
-	xor15: gateXOR PORT MAP(m3568_910,m11,x15); 
-
-
+	xor3_5: gateXOR PORT MAP(m3, m5, m3_m5);
+	xor35_8: gateXOR PORT MAP(m3_m5, m8, m35_8);
+	xor15: gateXOR PORT MAP(m_b,m35_8,x15);
  	
 END combinatorialEncoding;
 	
