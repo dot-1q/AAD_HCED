@@ -33,7 +33,7 @@ end Mux4_1;
 
 architecture BehavProc of Mux4_1 is
 begin
-    process(sel, dataln0, dataln1, dataln2, dataln3)
+    process(sel,selPar, dataln0, dataln1, dataln2, dataln3)
     begin
         if (sel = '0') then
 				if(selPar = '0')then

@@ -2,8 +2,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
 ENTITY controlUnit IS
-  PORT (clk, rst: 			IN std_logic;
-		  state_counter: IN std_logic_vector(3 downto 0);
+  PORT (state_counter: IN std_logic_vector(3 downto 0);
         comp_rst, a, b, c, d, sel2_1, sel4_1, selPar:      OUT STD_LOGIC);
 END controlUnit;
 

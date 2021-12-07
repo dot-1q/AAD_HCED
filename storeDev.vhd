@@ -37,7 +37,7 @@ ENTITY binCounter_4bit IS
 END binCounter_4bit;
 
 ARCHITECTURE structure OF binCounter_4bit IS
-  SIGNAL pD1, pD2, pD3: STD_LOGIC;
+  SIGNAL pD1, pD2: STD_LOGIC;
   SIGNAL iD1, iD2, iD3: STD_LOGIC;
   SIGNAL iQ0, iQ1, iQ2, iQ3: STD_LOGIC;
   SIGNAL inQ0: STD_LOGIC;
@@ -57,7 +57,6 @@ ARCHITECTURE structure OF binCounter_4bit IS
 BEGIN
   ad1: gateAnd PORT MAP (iQ0, iQ1, pD1);
   ad2: gateAnd PORT MAP (pD1, iQ2, pD2);
-  ad3: gateAnd PORT MAP (pD2, iQ3, pD3);
   
   xr1: gateXOR PORT MAP (iQ0, iQ1, iD1);
   xr2: gateXOR PORT MAP (pD1, iQ2, iD2);
